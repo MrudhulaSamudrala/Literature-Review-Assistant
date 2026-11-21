@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.pytest_cache/
+.mypy_cache/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Data
+backend/data/papers/*
+!backend/data/papers/.gitkeep
+backend/data/processed/*
+!backend/data/processed/.gitkeep
+backend/data/chunks/*
+!backend/data/chunks/.gitkeep
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

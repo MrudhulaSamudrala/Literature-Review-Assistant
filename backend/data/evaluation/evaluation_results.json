@@ -1,0 +1,3042 @@
+{
+  "metadata": {
+    "benchmark_name": "Smart Literature Review RAG Benchmark",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "generation_model": "google/flan-t5-small",
+    "total_queries_evaluated": 60
+  },
+  "aggregated": {
+    "single_paper_vector": {
+      "scenario": "single_paper",
+      "method": "vector",
+      "count": 10,
+      "cosine_similarity_mean": 0.4259,
+      "cosine_similarity_std": 0.3001,
+      "cosine_formatted": "0.426 ± 0.300",
+      "faithfulness_mean": 0.9,
+      "faithfulness_std": 0.3162,
+      "faithfulness_formatted": "0.900 ± 0.316",
+      "hit_at_1": 0.5,
+      "hit_at_3": 0.8,
+      "hit_at_5": 0.8,
+      "recall_at_5": 0.7,
+      "mrr": 0.6167,
+      "avg_total_latency_ms": 8014.7128,
+      "avg_retrieval_latency_ms": 49.9222,
+      "avg_generation_latency_ms": 672.7283
+    },
+    "single_paper_graph": {
+      "scenario": "single_paper",
+      "method": "graph",
+      "count": 10,
+      "cosine_similarity_mean": 0.2832,
+      "cosine_similarity_std": 0.2554,
+      "cosine_formatted": "0.283 ± 0.255",
+      "faithfulness_mean": 0.9,
+      "faithfulness_std": 0.3162,
+      "faithfulness_formatted": "0.900 ± 0.316",
+      "hit_at_1": 0.1,
+      "hit_at_3": 0.1,
+      "hit_at_5": 0.1,
+      "recall_at_5": 0.1,
+      "mrr": 0.1,
+      "avg_total_latency_ms": 7684.2306,
+      "avg_retrieval_latency_ms": 7212.7586,
+      "avg_generation_latency_ms": 468.5429
+    },
+    "single_paper_hybrid": {
+      "scenario": "single_paper",
+      "method": "hybrid",
+      "count": 10,
+      "cosine_similarity_mean": 0.3828,
+      "cosine_similarity_std": 0.3133,
+      "cosine_formatted": "0.383 ± 0.313",
+      "faithfulness_mean": 0.9,
+      "faithfulness_std": 0.3162,
+      "faithfulness_formatted": "0.900 ± 0.316",
+      "hit_at_1": 0.6,
+      "hit_at_3": 0.8,
+      "hit_at_5": 0.9,
+      "recall_at_5": 0.85,
+      "mrr": 0.7083,
+      "avg_total_latency_ms": 14941.1445,
+      "avg_retrieval_latency_ms": 7253.988,
+      "avg_generation_latency_ms": 705.3449
+    },
+    "multi_paper_vector": {
+      "scenario": "multi_paper",
+      "method": "vector",
+      "count": 10,
+      "cosine_similarity_mean": 0.307,
+      "cosine_similarity_std": 0.2346,
+      "cosine_formatted": "0.307 ± 0.235",
+      "faithfulness_mean": 1.0,
+      "faithfulness_std": 0.0,
+      "faithfulness_formatted": "1.000 ± 0.000",
+      "hit_at_1": 0.3,
+      "hit_at_3": 0.5,
+      "hit_at_5": 0.6,
+      "recall_at_5": 0.5,
+      "mrr": 0.4083,
+      "avg_total_latency_ms": 8690.069,
+      "avg_retrieval_latency_ms": 69.8228,
+      "avg_generation_latency_ms": 1092.7032
+    },
+    "multi_paper_graph": {
+      "scenario": "multi_paper",
+      "method": "graph",
+      "count": 10,
+      "cosine_similarity_mean": 0.3521,
+      "cosine_similarity_std": 0.1702,
+      "cosine_formatted": "0.352 ± 0.170",
+      "faithfulness_mean": 1.0,
+      "faithfulness_std": 0.0,
+      "faithfulness_formatted": "1.000 ± 0.000",
+      "hit_at_1": 0.2,
+      "hit_at_3": 0.4,
+      "hit_at_5": 0.4,
+      "recall_at_5": 0.2167,
+      "mrr": 0.3,
+      "avg_total_latency_ms": 8844.8255,
+      "avg_retrieval_latency_ms": 7989.2656,
+      "avg_generation_latency_ms": 849.9744
+    },
+    "multi_paper_hybrid": {
+      "scenario": "multi_paper",
+      "method": "hybrid",
+      "count": 10,
+      "cosine_similarity_mean": 0.3634,
+      "cosine_similarity_std": 0.2635,
+      "cosine_formatted": "0.363 ± 0.264",
+      "faithfulness_mean": 0.9,
+      "faithfulness_std": 0.3162,
+      "faithfulness_formatted": "0.900 ± 0.316",
+      "hit_at_1": 0.5,
+      "hit_at_3": 0.6,
+      "hit_at_5": 0.7,
+      "recall_at_5": 0.5333,
+      "mrr": 0.5893,
+      "avg_total_latency_ms": 15951.4561,
+      "avg_retrieval_latency_ms": 7830.3474,
+      "avg_generation_latency_ms": 835.423
+    }
+  },
+  "raw_results": [
+    {
+      "sample_id": "SP_001",
+      "scenario": "single_paper",
+      "method": "vector",
+      "question_type": "methodology",
+      "question": "What are the three RAG methods evaluated in the paper?",
+      "ground_truth_answer": "The paper evaluates VectorRAG, GraphRAG, and Hybrid RAG.",
+      "generated_answer": "Naive RAG, Advanced RAG, and Modular RAG.",
+      "cosine_similarity": 0.5453,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C006",
+        "P017_C021",
+        "P017_C015",
+        "P017_C007",
+        "P017_C017"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 84.886,
+      "retrieval_latency_ms": 306.702,
+      "generation_latency_ms": 2012.551,
+      "total_latency_ms": 9222.216,
+      "error": null
+    },
+    {
+      "sample_id": "SP_001",
+      "scenario": "single_paper",
+      "method": "graph",
+      "question_type": "methodology",
+      "question": "What are the three RAG methods evaluated in the paper?",
+      "ground_truth_answer": "The paper evaluates VectorRAG, GraphRAG, and Hybrid RAG.",
+      "generated_answer": "4.2.Test Sets.",
+      "cosine_similarity": 0.1858,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C019",
+        "P017_C015",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Methods",
+        "P017",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag"
+      ],
+      "retrieved_relationships": [
+        "Methods -[MENTIONED_IN]-> P017",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 9,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7397.2,
+      "generation_latency_ms": 489.78,
+      "total_latency_ms": 7890.32,
+      "error": null
+    },
+    {
+      "sample_id": "SP_001",
+      "scenario": "single_paper",
+      "method": "hybrid",
+      "question_type": "methodology",
+      "question": "What are the three RAG methods evaluated in the paper?",
+      "ground_truth_answer": "The paper evaluates VectorRAG, GraphRAG, and Hybrid RAG.",
+      "generated_answer": "Naive RAG, Advanced RAG, and Modular RAG.",
+      "cosine_similarity": 0.5453,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C006",
+        "P017_C021",
+        "P017_C015",
+        "P017_C018",
+        "P017_C007",
+        "P017_C019",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Methods",
+        "P017",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag"
+      ],
+      "retrieved_relationships": [
+        "Methods -[MENTIONED_IN]-> P017",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 7
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7142.608,
+      "generation_latency_ms": 760.99,
+      "total_latency_ms": 14869.005,
+      "error": null
+    },
+    {
+      "sample_id": "SP_002",
+      "scenario": "single_paper",
+      "method": "vector",
+      "question_type": "factoid",
+      "question": "What is the default value for maxPathsPerChunk in the prototype implementation?",
+      "ground_truth_answer": "In the prototype, the default value for maxPathsPerChunk is set to 10.",
+      "generated_answer": "The available evidence does not provide enough information to answer this question.",
+      "cosine_similarity": 0.0001,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "Valid refusal on insufficient evidence: faithfulness = 1.0",
+      "retrieved_chunk_ids": [
+        "P017_C026",
+        "P017_C016",
+        "P017_C011",
+        "P017_C015",
+        "P017_C018"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.3333
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 30.34,
+      "retrieval_latency_ms": 12.29,
+      "generation_latency_ms": 215.296,
+      "total_latency_ms": 7017.667,
+      "error": null
+    },
+    {
+      "sample_id": "SP_002",
+      "scenario": "single_paper",
+      "method": "graph",
+      "question_type": "factoid",
+      "question": "What is the default value for maxPathsPerChunk in the prototype implementation?",
+      "ground_truth_answer": "In the prototype, the default value for maxPathsPerChunk is set to 10.",
+      "generated_answer": "Graph.",
+      "cosine_similarity": 0.1204,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C015",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag",
+        "Graphrag"
+      ],
+      "retrieved_relationships": [
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017",
+        "Graphrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 8,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 6813.895,
+      "generation_latency_ms": 753.365,
+      "total_latency_ms": 7571.37,
+      "error": null
+    },
+    {
+      "sample_id": "SP_002",
+      "scenario": "single_paper",
+      "method": "hybrid",
+      "question_type": "factoid",
+      "question": "What is the default value for maxPathsPerChunk in the prototype implementation?",
+      "ground_truth_answer": "In the prototype, the default value for maxPathsPerChunk is set to 10.",
+      "generated_answer": "The available evidence does not provide enough information to answer this question.",
+      "cosine_similarity": 0.0001,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "Valid refusal on insufficient evidence: faithfulness = 1.0",
+      "retrieved_chunk_ids": [
+        "P017_C011",
+        "P017_C015",
+        "P017_C026",
+        "P017_C016",
+        "P017_C010",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag",
+        "Graphrag"
+      ],
+      "retrieved_relationships": [
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017",
+        "Graphrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 7
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7167.687,
+      "generation_latency_ms": 793.322,
+      "total_latency_ms": 14764.088,
+      "error": null
+    },
+    {
+      "sample_id": "SP_003",
+      "scenario": "single_paper",
+      "method": "vector",
+      "question_type": "evaluation",
+      "question": "What are the two primary evaluation scenarios examined in the study?",
+      "ground_truth_answer": "The two primary evaluation scenarios are RAG on a Single Paper and RAG Applied to a Database.",
+      "generated_answer": "RAG Applied to a Database.",
+      "cosine_similarity": 0.683,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C016",
+        "P017_C017",
+        "P017_C021",
+        "P017_C018",
+        "P017_C015"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 0.5,
+        "mrr": 0.5
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 63.583,
+      "retrieval_latency_ms": 22.64,
+      "generation_latency_ms": 456.421,
+      "total_latency_ms": 7808.223,
+      "error": null
+    },
+    {
+      "sample_id": "SP_003",
+      "scenario": "single_paper",
+      "method": "graph",
+      "question_type": "evaluation",
+      "question": "What are the two primary evaluation scenarios examined in the study?",
+      "ground_truth_answer": "The two primary evaluation scenarios are RAG on a Single Paper and RAG Applied to a Database.",
+      "generated_answer": "RAG Applied to a Single Paper.",
+      "cosine_similarity": 0.6003,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C015",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag",
+        "Graphrag"
+      ],
+      "retrieved_relationships": [
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017",
+        "Graphrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 8,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7054.717,
+      "generation_latency_ms": 540.673,
+      "total_latency_ms": 7598.107,
+      "error": null
+    },
+    {
+      "sample_id": "SP_003",
+      "scenario": "single_paper",
+      "method": "hybrid",
+      "question_type": "evaluation",
+      "question": "What are the two primary evaluation scenarios examined in the study?",
+      "ground_truth_answer": "The two primary evaluation scenarios are RAG on a Single Paper and RAG Applied to a Database.",
+      "generated_answer": "Assessing the quality of the questions and answers generated by theGPT-4o-minimodel.",
+      "cosine_similarity": 0.2527,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C018",
+        "P017_C021",
+        "P017_C016",
+        "P017_C004",
+        "P017_C017",
+        "P017_C015",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag",
+        "Graphrag"
+      ],
+      "retrieved_relationships": [
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017",
+        "Graphrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.25
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 7
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7291.153,
+      "generation_latency_ms": 878.463,
+      "total_latency_ms": 14951.272,
+      "error": null
+    },
+    {
+      "sample_id": "SP_004",
+      "scenario": "single_paper",
+      "method": "vector",
+      "question_type": "methodology",
+      "question": "Which three paradigms characterize the evolution of RAG according to the literature review?",
+      "ground_truth_answer": "The paper details RAG's evolution through three paradigms: Naive RAG, Advanced RAG, and Modular RAG.",
+      "generated_answer": "Naive RAG, Advanced RAG, and Modular RAG.",
+      "cosine_similarity": 0.8334,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C006",
+        "P017_C021",
+        "P017_C007",
+        "P017_C015",
+        "P017_C017"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 65.133,
+      "retrieval_latency_ms": 23.625,
+      "generation_latency_ms": 732.3,
+      "total_latency_ms": 7784.682,
+      "error": null
+    },
+    {
+      "sample_id": "SP_004",
+      "scenario": "single_paper",
+      "method": "graph",
+      "question_type": "methodology",
+      "question": "Which three paradigms characterize the evolution of RAG according to the literature review?",
+      "ground_truth_answer": "The paper details RAG's evolution through three paradigms: Naive RAG, Advanced RAG, and Modular RAG.",
+      "generated_answer": "GraphRAG and Vectorrag.",
+      "cosine_similarity": 0.1485,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C019",
+        "P017_C015",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Methods",
+        "P017",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag"
+      ],
+      "retrieved_relationships": [
+        "Methods -[MENTIONED_IN]-> P017",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 9,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7131.745,
+      "generation_latency_ms": 481.493,
+      "total_latency_ms": 7617.461,
+      "error": null
+    },
+    {
+      "sample_id": "SP_004",
+      "scenario": "single_paper",
+      "method": "hybrid",
+      "question_type": "methodology",
+      "question": "Which three paradigms characterize the evolution of RAG according to the literature review?",
+      "ground_truth_answer": "The paper details RAG's evolution through three paradigms: Naive RAG, Advanced RAG, and Modular RAG.",
+      "generated_answer": "Naive RAG, Advanced RAG, and Modular RAG.",
+      "cosine_similarity": 0.8334,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C006",
+        "P017_C021",
+        "P017_C001",
+        "P017_C007",
+        "P017_C004",
+        "P017_C019",
+        "P017_C015"
+      ],
+      "retrieved_nodes": [
+        "Methods",
+        "P017",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag"
+      ],
+      "retrieved_relationships": [
+        "Methods -[MENTIONED_IN]-> P017",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 7
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7925.179,
+      "generation_latency_ms": 817.914,
+      "total_latency_ms": 15586.988,
+      "error": null
+    },
+    {
+      "sample_id": "SP_005",
+      "scenario": "single_paper",
+      "method": "vector",
+      "question_type": "architecture",
+      "question": "What does Hybrid RAG combine to improve accuracy and contextual relevance?",
+      "ground_truth_answer": "Hybrid RAG combines both VectorRAG and GraphRAG to improve accuracy and contextual relevance.",
+      "generated_answer": "Long-context LLMs.",
+      "cosine_similarity": 0.2567,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C006",
+        "P017_C021",
+        "P017_C007",
+        "P017_C015",
+        "P017_C017"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 42.822,
+      "retrieval_latency_ms": 16.351,
+      "generation_latency_ms": 530.543,
+      "total_latency_ms": 7276.567,
+      "error": null
+    },
+    {
+      "sample_id": "SP_005",
+      "scenario": "single_paper",
+      "method": "graph",
+      "question_type": "architecture",
+      "question": "What does Hybrid RAG combine to improve accuracy and contextual relevance?",
+      "ground_truth_answer": "Hybrid RAG combines both VectorRAG and GraphRAG to improve accuracy and contextual relevance.",
+      "generated_answer": "Vectorrag.",
+      "cosine_similarity": 0.5402,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C019",
+        "P017_C015",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Methods",
+        "P017",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag"
+      ],
+      "retrieved_relationships": [
+        "Methods -[MENTIONED_IN]-> P017",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 9,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 6921.451,
+      "generation_latency_ms": 293.637,
+      "total_latency_ms": 7218.919,
+      "error": null
+    },
+    {
+      "sample_id": "SP_005",
+      "scenario": "single_paper",
+      "method": "hybrid",
+      "question_type": "architecture",
+      "question": "What does Hybrid RAG combine to improve accuracy and contextual relevance?",
+      "ground_truth_answer": "Hybrid RAG combines both VectorRAG and GraphRAG to improve accuracy and contextual relevance.",
+      "generated_answer": "Vectorrag.",
+      "cosine_similarity": 0.5402,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C021",
+        "P017_C006",
+        "P017_C009",
+        "P017_C007",
+        "P017_C022",
+        "P017_C019",
+        "P017_C015",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Methods",
+        "P017",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag"
+      ],
+      "retrieved_relationships": [
+        "Methods -[MENTIONED_IN]-> P017",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.3333
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 8
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7103.437,
+      "generation_latency_ms": 300.258,
+      "total_latency_ms": 14201.492,
+      "error": null
+    },
+    {
+      "sample_id": "SP_006",
+      "scenario": "single_paper",
+      "method": "vector",
+      "question_type": "evaluation",
+      "question": "What are the main evaluation metrics used to assess RAG performance in the paper?",
+      "ground_truth_answer": "The main evaluation metrics are Cosine Similarity and Faithfulness, evaluated by Mean and Standard Deviation.",
+      "generated_answer": "Vector-based RAG, Graph-based RAG, and a Hybrid RAG.",
+      "cosine_similarity": 0.1498,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C021",
+        "P017_C006",
+        "P017_C007",
+        "P017_C015",
+        "P017_C018"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 0.5,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 38.693,
+      "retrieval_latency_ms": 12.546,
+      "generation_latency_ms": 949.539,
+      "total_latency_ms": 7873.363,
+      "error": null
+    },
+    {
+      "sample_id": "SP_006",
+      "scenario": "single_paper",
+      "method": "graph",
+      "question_type": "evaluation",
+      "question": "What are the main evaluation metrics used to assess RAG performance in the paper?",
+      "ground_truth_answer": "The main evaluation metrics are Cosine Similarity and Faithfulness, evaluated by Mean and Standard Deviation.",
+      "generated_answer": "Cosine Similarity Faithfulness Cosine Similarity Faithfulness Mean SD. Mean SD. Mean SD.",
+      "cosine_similarity": 0.6572,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "3/3 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C019",
+        "P017_C026",
+        "P017_C015",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Methods",
+        "P017",
+        "Vector",
+        "P017",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017"
+      ],
+      "retrieved_relationships": [
+        "Methods -[MENTIONED_IN]-> P017",
+        "Vector -[MENTIONED_IN]-> P017",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 10,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 6897.4,
+      "generation_latency_ms": 904.114,
+      "total_latency_ms": 7802.768,
+      "error": null
+    },
+    {
+      "sample_id": "SP_006",
+      "scenario": "single_paper",
+      "method": "hybrid",
+      "question_type": "evaluation",
+      "question": "What are the main evaluation metrics used to assess RAG performance in the paper?",
+      "ground_truth_answer": "The main evaluation metrics are Cosine Similarity and Faithfulness, evaluated by Mean and Standard Deviation.",
+      "generated_answer": "Graph-based RAG, Graph-based RAG, and a Hybrid RAG.",
+      "cosine_similarity": 0.1544,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C021",
+        "P017_C018",
+        "P017_C015",
+        "P017_C004",
+        "P017_C006",
+        "P017_C019",
+        "P017_C026",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Methods",
+        "P017",
+        "Vector",
+        "P017",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017"
+      ],
+      "retrieved_relationships": [
+        "Methods -[MENTIONED_IN]-> P017",
+        "Vector -[MENTIONED_IN]-> P017",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 0.5,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 8
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 6803.634,
+      "generation_latency_ms": 1097.182,
+      "total_latency_ms": 14584.797,
+      "error": null
+    },
+    {
+      "sample_id": "SP_007",
+      "scenario": "single_paper",
+      "method": "vector",
+      "question_type": "evaluation",
+      "question": "What response options were available to annotators when evaluating whether an answer was derived from context?",
+      "ground_truth_answer": "The annotator selected responses from Yes, No, or Unsure for each question.",
+      "generated_answer": "Yes,No, orUnsure.",
+      "cosine_similarity": 0.1594,
+      "faithfulness": 0.0,
+      "faithfulness_reasoning": "0/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C016",
+        "P017_C017",
+        "P017_C018",
+        "P017_C015",
+        "P017_C021"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 40.739,
+      "retrieval_latency_ms": 76.403,
+      "generation_latency_ms": 312.947,
+      "total_latency_ms": 7229.686,
+      "error": null
+    },
+    {
+      "sample_id": "SP_007",
+      "scenario": "single_paper",
+      "method": "graph",
+      "question_type": "evaluation",
+      "question": "What response options were available to annotators when evaluating whether an answer was derived from context?",
+      "ground_truth_answer": "The annotator selected responses from Yes, No, or Unsure for each question.",
+      "generated_answer": "A restraining order.",
+      "cosine_similarity": 0.0,
+      "faithfulness": 0.0,
+      "faithfulness_reasoning": "0/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C015",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag",
+        "Graphrag"
+      ],
+      "retrieved_relationships": [
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017",
+        "Graphrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 8,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 6720.18,
+      "generation_latency_ms": 355.419,
+      "total_latency_ms": 7077.741,
+      "error": null
+    },
+    {
+      "sample_id": "SP_007",
+      "scenario": "single_paper",
+      "method": "hybrid",
+      "question_type": "evaluation",
+      "question": "What response options were available to annotators when evaluating whether an answer was derived from context?",
+      "ground_truth_answer": "The annotator selected responses from Yes, No, or Unsure for each question.",
+      "generated_answer": "Yes,No, orUnsure.",
+      "cosine_similarity": 0.1594,
+      "faithfulness": 0.0,
+      "faithfulness_reasoning": "0/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C016",
+        "P017_C017",
+        "P017_C018",
+        "P017_C015",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag",
+        "Graphrag"
+      ],
+      "retrieved_relationships": [
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017",
+        "Graphrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 6
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 6802.351,
+      "generation_latency_ms": 317.092,
+      "total_latency_ms": 13861.09,
+      "error": null
+    },
+    {
+      "sample_id": "SP_008",
+      "scenario": "single_paper",
+      "method": "vector",
+      "question_type": "comparative",
+      "question": "What challenge is observed regarding multi-document or database retrieval?",
+      "ground_truth_answer": "The lower performance in multi-paper retrieval underscores the need for improved retrieval ranking methods.",
+      "generated_answer": "The lower performance in multi-document retrieval underscores the need for improved retrieval ranking methods to mitigate irrelevant or redundant contexts.",
+      "cosine_similarity": 0.8677,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C022",
+        "P017_C004",
+        "P017_C015",
+        "P017_C008",
+        "P017_C017"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 28.049,
+      "retrieval_latency_ms": 9.089,
+      "generation_latency_ms": 833.789,
+      "total_latency_ms": 7553.972,
+      "error": null
+    },
+    {
+      "sample_id": "SP_008",
+      "scenario": "single_paper",
+      "method": "graph",
+      "question_type": "comparative",
+      "question": "What challenge is observed regarding multi-document or database retrieval?",
+      "ground_truth_answer": "The lower performance in multi-paper retrieval underscores the need for improved retrieval ranking methods.",
+      "generated_answer": "A database retrieval method.",
+      "cosine_similarity": 0.4736,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C019",
+        "P017_C015",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Methods",
+        "P017",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag"
+      ],
+      "retrieved_relationships": [
+        "Methods -[MENTIONED_IN]-> P017",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 9,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 6811.798,
+      "generation_latency_ms": 306.171,
+      "total_latency_ms": 7119.52,
+      "error": null
+    },
+    {
+      "sample_id": "SP_008",
+      "scenario": "single_paper",
+      "method": "hybrid",
+      "question_type": "comparative",
+      "question": "What challenge is observed regarding multi-document or database retrieval?",
+      "ground_truth_answer": "The lower performance in multi-paper retrieval underscores the need for improved retrieval ranking methods.",
+      "generated_answer": "The lower performance in multi-document retrieval underscores the need for improved retrieval ranking methods to mitigate irrelevant or redundant contexts.",
+      "cosine_similarity": 0.8677,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C022",
+        "P017_C003",
+        "P017_C004",
+        "P017_C021",
+        "P017_C015",
+        "P017_C019",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Methods",
+        "P017",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag"
+      ],
+      "retrieved_relationships": [
+        "Methods -[MENTIONED_IN]-> P017",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 7
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 6902.806,
+      "generation_latency_ms": 869.334,
+      "total_latency_ms": 14616.78,
+      "error": null
+    },
+    {
+      "sample_id": "SP_009",
+      "scenario": "single_paper",
+      "method": "vector",
+      "question_type": "factoid",
+      "question": "What framework was introduced by prior work to address challenges with dynamic knowledge sources?",
+      "ground_truth_answer": "The authors introduced a framework called Auepora to address the challenge of dynamic knowledge sources.",
+      "generated_answer": "Auepora.",
+      "cosine_similarity": 0.4448,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C007",
+        "P017_C017",
+        "P017_C016",
+        "P017_C022",
+        "P017_C015"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 27.028,
+      "retrieval_latency_ms": 9.584,
+      "generation_latency_ms": 275.5,
+      "total_latency_ms": 7756.092,
+      "error": null
+    },
+    {
+      "sample_id": "SP_009",
+      "scenario": "single_paper",
+      "method": "graph",
+      "question_type": "factoid",
+      "question": "What framework was introduced by prior work to address challenges with dynamic knowledge sources?",
+      "ground_truth_answer": "The authors introduced a framework called Auepora to address the challenge of dynamic knowledge sources.",
+      "generated_answer": "RAG.",
+      "cosine_similarity": 0.0068,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C015",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag",
+        "Graphrag"
+      ],
+      "retrieved_relationships": [
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017",
+        "Graphrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 8,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7577.38,
+      "generation_latency_ms": 206.874,
+      "total_latency_ms": 7787.231,
+      "error": null
+    },
+    {
+      "sample_id": "SP_009",
+      "scenario": "single_paper",
+      "method": "hybrid",
+      "question_type": "factoid",
+      "question": "What framework was introduced by prior work to address challenges with dynamic knowledge sources?",
+      "ground_truth_answer": "The authors introduced a framework called Auepora to address the challenge of dynamic knowledge sources.",
+      "generated_answer": "Auepora.",
+      "cosine_similarity": 0.4448,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C007",
+        "P017_C017",
+        "P017_C003",
+        "P017_C016",
+        "P017_C012",
+        "P017_C015",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag",
+        "Graphrag"
+      ],
+      "retrieved_relationships": [
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017",
+        "Graphrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 8
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7582.22,
+      "generation_latency_ms": 297.102,
+      "total_latency_ms": 15367.822,
+      "error": null
+    },
+    {
+      "sample_id": "SP_010",
+      "scenario": "single_paper",
+      "method": "vector",
+      "question_type": "methodology",
+      "question": "What model was used to generate benchmark test sets in the base paper?",
+      "ground_truth_answer": "Benchmark test sets were generated using a GPT model, with selected outputs annotated for evaluation.",
+      "generated_answer": "TheGPT4o-minimodel.",
+      "cosine_similarity": 0.3192,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C015",
+        "P017_C016",
+        "P017_C002",
+        "P017_C018",
+        "P017_C017"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.3333
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 24.544,
+      "retrieval_latency_ms": 9.992,
+      "generation_latency_ms": 408.397,
+      "total_latency_ms": 10624.66,
+      "error": null
+    },
+    {
+      "sample_id": "SP_010",
+      "scenario": "single_paper",
+      "method": "graph",
+      "question_type": "methodology",
+      "question": "What model was used to generate benchmark test sets in the base paper?",
+      "ground_truth_answer": "Benchmark test sets were generated using a GPT model, with selected outputs annotated for evaluation.",
+      "generated_answer": "GraphRAG.",
+      "cosine_similarity": 0.0996,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C019",
+        "P017_C015",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Methods",
+        "P017",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag"
+      ],
+      "retrieved_relationships": [
+        "Methods -[MENTIONED_IN]-> P017",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 9,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 8801.82,
+      "generation_latency_ms": 353.903,
+      "total_latency_ms": 9158.869,
+      "error": null
+    },
+    {
+      "sample_id": "SP_010",
+      "scenario": "single_paper",
+      "method": "hybrid",
+      "question_type": "methodology",
+      "question": "What model was used to generate benchmark test sets in the base paper?",
+      "ground_truth_answer": "Benchmark test sets were generated using a GPT model, with selected outputs annotated for evaluation.",
+      "generated_answer": "RAG Applied to a Single Paper.",
+      "cosine_similarity": 0.0299,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C015",
+        "P017_C002",
+        "P017_C017",
+        "P017_C016",
+        "P017_C004",
+        "P017_C019",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Methods",
+        "P017",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag"
+      ],
+      "retrieved_relationships": [
+        "Methods -[MENTIONED_IN]-> P017",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.5
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 8
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7818.805,
+      "generation_latency_ms": 921.792,
+      "total_latency_ms": 16608.111,
+      "error": null
+    },
+    {
+      "sample_id": "MP_001",
+      "scenario": "multi_paper",
+      "method": "vector",
+      "question_type": "comparative",
+      "question": "How does GraphRAG contrast with traditional VectorRAG when indexing source documents?",
+      "ground_truth_answer": "GraphRAG contrasts with VectorRAG by generating a graph index of entities and relationships from source data, rather than relying solely on unstructured vector chunk embeddings.",
+      "generated_answer": "Hierarchical indexing.",
+      "cosine_similarity": 0.3175,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C007",
+        "P022_C006",
+        "P022_C058",
+        "P017_C008",
+        "P022_C009"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 58.192,
+      "retrieval_latency_ms": 287.026,
+      "generation_latency_ms": 498.288,
+      "total_latency_ms": 8602.995,
+      "error": null
+    },
+    {
+      "sample_id": "MP_001",
+      "scenario": "multi_paper",
+      "method": "graph",
+      "question_type": "comparative",
+      "question": "How does GraphRAG contrast with traditional VectorRAG when indexing source documents?",
+      "ground_truth_answer": "GraphRAG contrasts with VectorRAG by generating a graph index of entities and relationships from source data, rather than relying solely on unstructured vector chunk embeddings.",
+      "generated_answer": "Graph RAG pipeline using an LLM-derived graph index of source document text.",
+      "cosine_similarity": 0.5964,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C009",
+        "P022_C010",
+        "P017_C026",
+        "P022_C026",
+        "P017_C015"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P022",
+        "Vector",
+        "P017",
+        "Vector",
+        "P022",
+        "Search",
+        "P017"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P017",
+        "Vector -[MENTIONED_IN]-> P022",
+        "Search -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 0.3333,
+        "mrr": 0.5
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 10,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 8568.008,
+      "generation_latency_ms": 952.509,
+      "total_latency_ms": 9525.725,
+      "error": null
+    },
+    {
+      "sample_id": "MP_001",
+      "scenario": "multi_paper",
+      "method": "hybrid",
+      "question_type": "comparative",
+      "question": "How does GraphRAG contrast with traditional VectorRAG when indexing source documents?",
+      "ground_truth_answer": "GraphRAG contrasts with VectorRAG by generating a graph index of entities and relationships from source data, rather than relying solely on unstructured vector chunk embeddings.",
+      "generated_answer": "GraphRAG is similar to other approaches that use hierarchical indexing to create summaries.",
+      "cosine_similarity": 0.6627,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C007",
+        "P017_C015",
+        "P022_C006",
+        "P017_C010",
+        "P022_C058",
+        "P022_C009",
+        "P022_C010",
+        "P017_C026",
+        "P022_C026"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P022",
+        "Vector",
+        "P017",
+        "Vector",
+        "P022",
+        "Search",
+        "P017"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P017",
+        "Vector -[MENTIONED_IN]-> P022",
+        "Search -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.1429
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 9
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 8024.652,
+      "generation_latency_ms": 1368.81,
+      "total_latency_ms": 16477.411,
+      "error": null
+    },
+    {
+      "sample_id": "MP_002",
+      "scenario": "multi_paper",
+      "method": "vector",
+      "question_type": "architecture",
+      "question": "What high-level workflow connects source documents to query responses in GraphRAG?",
+      "ground_truth_answer": "The workflow extracts text chunks from source documents, identifies entities and relationships to build a knowledge graph, and uses graph structures to synthesize responses.",
+      "generated_answer": "GraphRAG.",
+      "cosine_similarity": 0.3204,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C006",
+        "P022_C007",
+        "P022_C009",
+        "P022_C010",
+        "P022_C014"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.3333
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 45.965,
+      "retrieval_latency_ms": 28.494,
+      "generation_latency_ms": 585.588,
+      "total_latency_ms": 7887.073,
+      "error": null
+    },
+    {
+      "sample_id": "MP_002",
+      "scenario": "multi_paper",
+      "method": "graph",
+      "question_type": "architecture",
+      "question": "What high-level workflow connects source documents to query responses in GraphRAG?",
+      "ground_truth_answer": "The workflow extracts text chunks from source documents, identifies entities and relationships to build a knowledge graph, and uses graph structures to synthesize responses.",
+      "generated_answer": "LLM-derived graph index.",
+      "cosine_similarity": 0.1873,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C009",
+        "P022_C010",
+        "P022_C026",
+        "P017_C015",
+        "P017_C021"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P022",
+        "Vector",
+        "P022",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P022",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 10,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 8195.21,
+      "generation_latency_ms": 814.957,
+      "total_latency_ms": 9016.735,
+      "error": null
+    },
+    {
+      "sample_id": "MP_002",
+      "scenario": "multi_paper",
+      "method": "hybrid",
+      "question_type": "architecture",
+      "question": "What high-level workflow connects source documents to query responses in GraphRAG?",
+      "ground_truth_answer": "The workflow extracts text chunks from source documents, identifies entities and relationships to build a knowledge graph, and uses graph structures to synthesize responses.",
+      "generated_answer": "GraphRAG Workflow.",
+      "cosine_similarity": 0.4557,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C010",
+        "P022_C006",
+        "P022_C007",
+        "P017_C008",
+        "P022_C009",
+        "P022_C026",
+        "P017_C015",
+        "P017_C021"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P022",
+        "Vector",
+        "P022",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P022",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 8
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7921.127,
+      "generation_latency_ms": 673.799,
+      "total_latency_ms": 16054.061,
+      "error": null
+    },
+    {
+      "sample_id": "MP_003",
+      "scenario": "multi_paper",
+      "method": "vector",
+      "question_type": "architecture",
+      "question": "How does GraphRAG handle duplicate or co-referent entities across different documents?",
+      "ground_truth_answer": "GraphRAG is resilient to duplicate entities because duplicates are clustered together during community detection and summarization.",
+      "generated_answer": "GraphRAG leverages summaries over large sections of the data source as a form of ”self-memory” (described in Cheng et al. 2024), which are later used to answer queries as in Mao et al.",
+      "cosine_similarity": 0.6304,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "2/2 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C007",
+        "P022_C006",
+        "P022_C010",
+        "P022_C013",
+        "P022_C012"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.25
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 49.904,
+      "retrieval_latency_ms": 30.736,
+      "generation_latency_ms": 2923.167,
+      "total_latency_ms": 10447.015,
+      "error": null
+    },
+    {
+      "sample_id": "MP_003",
+      "scenario": "multi_paper",
+      "method": "graph",
+      "question_type": "architecture",
+      "question": "How does GraphRAG handle duplicate or co-referent entities across different documents?",
+      "ground_truth_answer": "GraphRAG is resilient to duplicate entities because duplicates are clustered together during community detection and summarization.",
+      "generated_answer": "Graph RAG pipeline using an LLM-derived graph index of source document text.",
+      "cosine_similarity": 0.4009,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C009",
+        "P022_C010",
+        "P022_C026",
+        "P017_C015",
+        "P017_C021"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P022",
+        "Vector",
+        "P022",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P022",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 10,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7386.075,
+      "generation_latency_ms": 1114.848,
+      "total_latency_ms": 8504.744,
+      "error": null
+    },
+    {
+      "sample_id": "MP_003",
+      "scenario": "multi_paper",
+      "method": "hybrid",
+      "question_type": "architecture",
+      "question": "How does GraphRAG handle duplicate or co-referent entities across different documents?",
+      "ground_truth_answer": "GraphRAG is resilient to duplicate entities because duplicates are clustered together during community detection and summarization.",
+      "generated_answer": "GraphRAG handles duplicate or co-referent entities across different documents.",
+      "cosine_similarity": 0.6974,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C010",
+        "P022_C012",
+        "P022_C007",
+        "P022_C073",
+        "P022_C006",
+        "P022_C009",
+        "P022_C026",
+        "P017_C015",
+        "P017_C021"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P022",
+        "Vector",
+        "P022",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P022",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 9
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7568.054,
+      "generation_latency_ms": 1122.337,
+      "total_latency_ms": 15656.35,
+      "error": null
+    },
+    {
+      "sample_id": "MP_004",
+      "scenario": "multi_paper",
+      "method": "vector",
+      "question_type": "evaluation",
+      "question": "What evaluation metrics are used to compare response relevance and retrieval quality across papers?",
+      "ground_truth_answer": "Evaluation utilizes cosine similarity to measure semantic match with reference answers, faithfulness to evaluate context groundedness, and retrieval rank metrics.",
+      "generated_answer": "GPT-based implementation of multiple RAG systems.",
+      "cosine_similarity": 0.0435,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C004",
+        "P017_C015",
+        "P017_C017",
+        "P017_C022",
+        "P017_C018"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 34.092,
+      "retrieval_latency_ms": 21.35,
+      "generation_latency_ms": 710.608,
+      "total_latency_ms": 8433.938,
+      "error": null
+    },
+    {
+      "sample_id": "MP_004",
+      "scenario": "multi_paper",
+      "method": "graph",
+      "question_type": "evaluation",
+      "question": "What evaluation metrics are used to compare response relevance and retrieval quality across papers?",
+      "ground_truth_answer": "Evaluation utilizes cosine similarity to measure semantic match with reference answers, faithfulness to evaluate context groundedness, and retrieval rank metrics.",
+      "generated_answer": "LLM-derived graph index.",
+      "cosine_similarity": 0.2055,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C009",
+        "P017_C019",
+        "P022_C010",
+        "P022_C026",
+        "P017_C015"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P017",
+        "Methods",
+        "P022",
+        "Vector",
+        "P022",
+        "Search",
+        "P017"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P017",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P022",
+        "Search -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 0.3333,
+        "mrr": 0.5
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 10,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 9835.837,
+      "generation_latency_ms": 679.734,
+      "total_latency_ms": 10521.49,
+      "error": null
+    },
+    {
+      "sample_id": "MP_004",
+      "scenario": "multi_paper",
+      "method": "hybrid",
+      "question_type": "evaluation",
+      "question": "What evaluation metrics are used to compare response relevance and retrieval quality across papers?",
+      "ground_truth_answer": "Evaluation utilizes cosine similarity to measure semantic match with reference answers, faithfulness to evaluate context groundedness, and retrieval rank metrics.",
+      "generated_answer": "GPT.",
+      "cosine_similarity": 0.0666,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C004",
+        "P017_C018",
+        "P017_C015",
+        "P017_C021",
+        "P017_C017",
+        "P022_C009",
+        "P017_C019",
+        "P022_C010",
+        "P022_C026"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P017",
+        "Methods",
+        "P022",
+        "Vector",
+        "P022",
+        "Search",
+        "P017"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P017",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P022",
+        "Search -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 0.3333,
+        "mrr": 0.25
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 9
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 8462.751,
+      "generation_latency_ms": 413.575,
+      "total_latency_ms": 16659.091,
+      "error": null
+    },
+    {
+      "sample_id": "MP_005",
+      "scenario": "multi_paper",
+      "method": "vector",
+      "question_type": "comparative",
+      "question": "Why does multi-paper retrieval show lower accuracy compared to single-paper retrieval?",
+      "ground_truth_answer": "Multi-paper retrieval faces larger corpus distraction, conflicting contexts, and inter-document ambiguity, which underscores the need for improved retrieval ranking.",
+      "generated_answer": "Improved retrieval ranking methods.",
+      "cosine_similarity": 0.561,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C022",
+        "P017_C004",
+        "P017_C015",
+        "P022_C051",
+        "P022_C038"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 112.484,
+      "retrieval_latency_ms": 39.404,
+      "generation_latency_ms": 649.44,
+      "total_latency_ms": 8371.503,
+      "error": null
+    },
+    {
+      "sample_id": "MP_005",
+      "scenario": "multi_paper",
+      "method": "graph",
+      "question_type": "comparative",
+      "question": "Why does multi-paper retrieval show lower accuracy compared to single-paper retrieval?",
+      "ground_truth_answer": "Multi-paper retrieval faces larger corpus distraction, conflicting contexts, and inter-document ambiguity, which underscores the need for improved retrieval ranking.",
+      "generated_answer": "GraphRAG approaches versus source text summarization.",
+      "cosine_similarity": 0.29,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C026",
+        "P017_C015",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Vector",
+        "P022",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag"
+      ],
+      "retrieved_relationships": [
+        "Vector -[MENTIONED_IN]-> P022",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 9,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7970.014,
+      "generation_latency_ms": 933.094,
+      "total_latency_ms": 8911.138,
+      "error": null
+    },
+    {
+      "sample_id": "MP_005",
+      "scenario": "multi_paper",
+      "method": "hybrid",
+      "question_type": "comparative",
+      "question": "Why does multi-paper retrieval show lower accuracy compared to single-paper retrieval?",
+      "ground_truth_answer": "Multi-paper retrieval faces larger corpus distraction, conflicting contexts, and inter-document ambiguity, which underscores the need for improved retrieval ranking.",
+      "generated_answer": "Improved Hybrid Retrieval Mechanisms.",
+      "cosine_similarity": 0.4982,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C022",
+        "P017_C004",
+        "P017_C015",
+        "P017_C021",
+        "P022_C051",
+        "P022_C026",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Vector",
+        "P022",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag"
+      ],
+      "retrieved_relationships": [
+        "Vector -[MENTIONED_IN]-> P022",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 7
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7619.27,
+      "generation_latency_ms": 992.935,
+      "total_latency_ms": 15907.255,
+      "error": null
+    },
+    {
+      "sample_id": "MP_006",
+      "scenario": "multi_paper",
+      "method": "vector",
+      "question_type": "architecture",
+      "question": "What role does hierarchical community partition play in graph-based summarization?",
+      "ground_truth_answer": "Each level of the hierarchy provides a community partition covering the nodes in a mutually exclusive manner, enabling global multi-document summarization.",
+      "generated_answer": "Divide-and-conquer global summarization.",
+      "cosine_similarity": 0.6579,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C014",
+        "P022_C009",
+        "P022_C013",
+        "P022_C007",
+        "P022_C022"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 35.083,
+      "retrieval_latency_ms": 58.678,
+      "generation_latency_ms": 607.623,
+      "total_latency_ms": 7887.388,
+      "error": null
+    },
+    {
+      "sample_id": "MP_006",
+      "scenario": "multi_paper",
+      "method": "graph",
+      "question_type": "architecture",
+      "question": "What role does hierarchical community partition play in graph-based summarization?",
+      "ground_truth_answer": "Each level of the hierarchy provides a community partition covering the nodes in a mutually exclusive manner, enabling global multi-document summarization.",
+      "generated_answer": "Community detection.",
+      "cosine_similarity": 0.4722,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C009",
+        "P022_C026",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Vector",
+        "P022",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P022",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 9,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7916.043,
+      "generation_latency_ms": 334.841,
+      "total_latency_ms": 8256.621,
+      "error": null
+    },
+    {
+      "sample_id": "MP_006",
+      "scenario": "multi_paper",
+      "method": "hybrid",
+      "question_type": "architecture",
+      "question": "What role does hierarchical community partition play in graph-based summarization?",
+      "ground_truth_answer": "Each level of the hierarchy provides a community partition covering the nodes in a mutually exclusive manner, enabling global multi-document summarization.",
+      "generated_answer": "Divide-and-conquer global summarization.",
+      "cosine_similarity": 0.6579,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C014",
+        "P022_C013",
+        "P022_C009",
+        "P022_C007",
+        "P022_C019",
+        "P022_C026",
+        "P017_C021",
+        "P017_C001"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Vector",
+        "P022",
+        "Hybrid",
+        "P017",
+        "Literature",
+        "P017",
+        "Vectorrag"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P022",
+        "Hybrid -[MENTIONED_IN]-> P017",
+        "Literature -[MENTIONED_IN]-> P017",
+        "Vectorrag -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 8
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7761.738,
+      "generation_latency_ms": 771.282,
+      "total_latency_ms": 15750.776,
+      "error": null
+    },
+    {
+      "sample_id": "MP_007",
+      "scenario": "multi_paper",
+      "method": "vector",
+      "question_type": "methodology",
+      "question": "How does Hybrid RAG combine multiple retrieval mechanisms to overcome single-mode weaknesses?",
+      "ground_truth_answer": "Hybrid RAG fuses dense vector similarity search, lexical BM25 retrieval, and graph structural relationships to balance precision and recall.",
+      "generated_answer": "The total number of records in a data source is too large to include in a single prompt to the LLM.",
+      "cosine_similarity": 0.1452,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C005",
+        "P017_C006",
+        "P022_C026",
+        "P017_C015",
+        "P017_C007"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 0.5,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 48.422,
+      "retrieval_latency_ms": 41.943,
+      "generation_latency_ms": 1313.518,
+      "total_latency_ms": 8755.377,
+      "error": null
+    },
+    {
+      "sample_id": "MP_007",
+      "scenario": "multi_paper",
+      "method": "graph",
+      "question_type": "methodology",
+      "question": "How does Hybrid RAG combine multiple retrieval mechanisms to overcome single-mode weaknesses?",
+      "ground_truth_answer": "Hybrid RAG fuses dense vector similarity search, lexical BM25 retrieval, and graph structural relationships to balance precision and recall.",
+      "generated_answer": "Using LLM-derived graph index of source document text.",
+      "cosine_similarity": 0.3793,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C009",
+        "P017_C019",
+        "P022_C010",
+        "P022_C026",
+        "P017_C015"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P017",
+        "Methods",
+        "P022",
+        "Vector",
+        "P022",
+        "Search",
+        "P017"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P017",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P022",
+        "Search -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 10,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7171.967,
+      "generation_latency_ms": 774.669,
+      "total_latency_ms": 7949.568,
+      "error": null
+    },
+    {
+      "sample_id": "MP_007",
+      "scenario": "multi_paper",
+      "method": "hybrid",
+      "question_type": "methodology",
+      "question": "How does Hybrid RAG combine multiple retrieval mechanisms to overcome single-mode weaknesses?",
+      "ground_truth_answer": "Hybrid RAG fuses dense vector similarity search, lexical BM25 retrieval, and graph structural relationships to balance precision and recall.",
+      "generated_answer": "A single-mode weakness.",
+      "cosine_similarity": 0.0746,
+      "faithfulness": 0.0,
+      "faithfulness_reasoning": "0/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C005",
+        "P017_C022",
+        "P017_C006",
+        "P017_C004",
+        "P022_C026",
+        "P022_C009",
+        "P017_C019",
+        "P022_C010",
+        "P017_C015"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P017",
+        "Methods",
+        "P022",
+        "Vector",
+        "P022",
+        "Search",
+        "P017"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P017",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P022",
+        "Search -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 0.5,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 9
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7629.517,
+      "generation_latency_ms": 682.149,
+      "total_latency_ms": 15788.203,
+      "error": null
+    },
+    {
+      "sample_id": "MP_008",
+      "scenario": "multi_paper",
+      "method": "vector",
+      "question_type": "factoid",
+      "question": "What scoring or rating range does GraphRAG generate to evaluate how helpful intermediate answers are?",
+      "ground_truth_answer": "The model is asked to generate a score between 0 and 100 indicating how helpful the intermediate answer is.",
+      "generated_answer": "The available evidence does not provide enough information to answer this question.",
+      "cosine_similarity": 0.0453,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "Valid refusal on insufficient evidence: faithfulness = 1.0",
+      "retrieved_chunk_ids": [
+        "P017_C018",
+        "P017_C021",
+        "P022_C072",
+        "P022_C024",
+        "P017_C015"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 34.85,
+      "retrieval_latency_ms": 49.376,
+      "generation_latency_ms": 546.981,
+      "total_latency_ms": 8203.297,
+      "error": null
+    },
+    {
+      "sample_id": "MP_008",
+      "scenario": "multi_paper",
+      "method": "graph",
+      "question_type": "factoid",
+      "question": "What scoring or rating range does GraphRAG generate to evaluate how helpful intermediate answers are?",
+      "ground_truth_answer": "The model is asked to generate a score between 0 and 100 indicating how helpful the intermediate answer is.",
+      "generated_answer": "The available evidence does not provide enough information to answer this question.",
+      "cosine_similarity": 0.0453,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "Valid refusal on insufficient evidence: faithfulness = 1.0",
+      "retrieved_chunk_ids": [
+        "P022_C009",
+        "P022_C010",
+        "P022_C026",
+        "P017_C015",
+        "P017_C021"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P022",
+        "Vector",
+        "P022",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P022",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 10,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7917.226,
+      "generation_latency_ms": 1179.911,
+      "total_latency_ms": 9108.276,
+      "error": null
+    },
+    {
+      "sample_id": "MP_008",
+      "scenario": "multi_paper",
+      "method": "hybrid",
+      "question_type": "factoid",
+      "question": "What scoring or rating range does GraphRAG generate to evaluate how helpful intermediate answers are?",
+      "ground_truth_answer": "The model is asked to generate a score between 0 and 100 indicating how helpful the intermediate answer is.",
+      "generated_answer": "The available evidence does not provide enough information to answer this question.",
+      "cosine_similarity": 0.0453,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "Valid refusal on insufficient evidence: faithfulness = 1.0",
+      "retrieved_chunk_ids": [
+        "P017_C018",
+        "P022_C015",
+        "P017_C021",
+        "P022_C074",
+        "P022_C072",
+        "P022_C009",
+        "P022_C010",
+        "P022_C026",
+        "P017_C015"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P022",
+        "Vector",
+        "P022",
+        "Search",
+        "P017",
+        "Hybrid",
+        "P017"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P022",
+        "Search -[MENTIONED_IN]-> P017",
+        "Hybrid -[MENTIONED_IN]-> P017"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "mrr": 0.5
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 9
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 8237.569,
+      "generation_latency_ms": 1065.377,
+      "total_latency_ms": 16577.426,
+      "error": null
+    },
+    {
+      "sample_id": "MP_009",
+      "scenario": "multi_paper",
+      "method": "vector",
+      "question_type": "comparative",
+      "question": "What are the limitations of pure vector similarity search when answering corpus-wide or global questions?",
+      "ground_truth_answer": "Pure vector similarity search struggles with global query-focused summarization because it only retrieves top-k isolated text chunks rather than aggregating structural relationships across documents.",
+      "generated_answer": "Sensemaking tasks require reasoning over “ connections (which can be among people, places, and events) in order to anticipate their trajectories and act effectively” (Klein et al., 2006).",
+      "cosine_similarity": 0.1332,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C003",
+        "P017_C008",
+        "P017_C012",
+        "P022_C041",
+        "P022_C015"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 51.325,
+      "retrieval_latency_ms": 107.157,
+      "generation_latency_ms": 2428.076,
+      "total_latency_ms": 10304.732,
+      "error": null
+    },
+    {
+      "sample_id": "MP_009",
+      "scenario": "multi_paper",
+      "method": "graph",
+      "question_type": "comparative",
+      "question": "What are the limitations of pure vector similarity search when answering corpus-wide or global questions?",
+      "ground_truth_answer": "Pure vector similarity search struggles with global query-focused summarization because it only retrieves top-k isolated text chunks rather than aggregating structural relationships across documents.",
+      "generated_answer": "Graph RAG pipeline using an LLM-derived graph index of source document text.",
+      "cosine_similarity": 0.4086,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C009",
+        "P017_C019",
+        "P022_C010",
+        "P017_C026",
+        "P022_C026"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P017",
+        "Methods",
+        "P022",
+        "Vector",
+        "P017",
+        "Vector",
+        "P022"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P017",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P017",
+        "Vector -[MENTIONED_IN]-> P022"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 10,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7690.509,
+      "generation_latency_ms": 921.355,
+      "total_latency_ms": 8614.207,
+      "error": null
+    },
+    {
+      "sample_id": "MP_009",
+      "scenario": "multi_paper",
+      "method": "hybrid",
+      "question_type": "comparative",
+      "question": "What are the limitations of pure vector similarity search when answering corpus-wide or global questions?",
+      "ground_truth_answer": "Pure vector similarity search struggles with global query-focused summarization because it only retrieves top-k isolated text chunks rather than aggregating structural relationships across documents.",
+      "generated_answer": "Proximity measures in the embedding space.",
+      "cosine_similarity": 0.2927,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C012",
+        "P022_C015",
+        "P022_C003",
+        "P022_C004",
+        "P017_C008",
+        "P022_C009",
+        "P017_C019",
+        "P022_C010",
+        "P017_C026",
+        "P022_C026"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P017",
+        "Methods",
+        "P022",
+        "Vector",
+        "P017",
+        "Vector",
+        "P022"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P017",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P017",
+        "Vector -[MENTIONED_IN]-> P022"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "mrr": 0.0
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 10
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7521.804,
+      "generation_latency_ms": 590.766,
+      "total_latency_ms": 15019.839,
+      "error": null
+    },
+    {
+      "sample_id": "MP_010",
+      "scenario": "multi_paper",
+      "method": "vector",
+      "question_type": "methodology",
+      "question": "What foundational data structures are established during the indexing phase of scientific literature RAG?",
+      "ground_truth_answer": "The indexing phase establishes vector embeddings for chunk similarity retrieval and property graph nodes and relationships for entity connectivity.",
+      "generated_answer": "A graph rag.",
+      "cosine_similarity": 0.2159,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C044",
+        "P017_C012",
+        "P017_C017",
+        "P022_C003",
+        "P017_C004"
+      ],
+      "retrieved_nodes": [],
+      "retrieved_relationships": [],
+      "retrieval_metrics": {
+        "hit_at_1": 0.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 0.5,
+        "mrr": 0.5
+      },
+      "method_specific_metrics": {},
+      "embedding_latency_ms": 46.319,
+      "retrieval_latency_ms": 34.064,
+      "generation_latency_ms": 663.743,
+      "total_latency_ms": 8007.372,
+      "error": null
+    },
+    {
+      "sample_id": "MP_010",
+      "scenario": "multi_paper",
+      "method": "graph",
+      "question_type": "methodology",
+      "question": "What foundational data structures are established during the indexing phase of scientific literature RAG?",
+      "ground_truth_answer": "The indexing phase establishes vector embeddings for chunk similarity retrieval and property graph nodes and relationships for entity connectivity.",
+      "generated_answer": "LLM-derived graph index of source document text.",
+      "cosine_similarity": 0.5356,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P022_C009",
+        "P017_C019",
+        "P022_C010",
+        "P017_C026",
+        "P022_C026"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P017",
+        "Methods",
+        "P022",
+        "Vector",
+        "P017",
+        "Vector",
+        "P022"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P017",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P017",
+        "Vector -[MENTIONED_IN]-> P022"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 0.5,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {
+        "relevant_nodes_retrieved": 10,
+        "relevant_relationships_retrieved": 5,
+        "graph_retrieval_success": true
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7241.767,
+      "generation_latency_ms": 793.826,
+      "total_latency_ms": 8039.751,
+      "error": null
+    },
+    {
+      "sample_id": "MP_010",
+      "scenario": "multi_paper",
+      "method": "hybrid",
+      "question_type": "methodology",
+      "question": "What foundational data structures are established during the indexing phase of scientific literature RAG?",
+      "ground_truth_answer": "The indexing phase establishes vector embeddings for chunk similarity retrieval and property graph nodes and relationships for entity connectivity.",
+      "generated_answer": "Vector-based and graph-based RAG systems.",
+      "cosine_similarity": 0.1833,
+      "faithfulness": 1.0,
+      "faithfulness_reasoning": "1/1 claims supported by retrieved evidence.",
+      "retrieved_chunk_ids": [
+        "P017_C012",
+        "P017_C004",
+        "P022_C044",
+        "P017_C003",
+        "P017_C017",
+        "P022_C009",
+        "P017_C019",
+        "P022_C010",
+        "P017_C026",
+        "P022_C026"
+      ],
+      "retrieved_nodes": [
+        "Chunking",
+        "P022",
+        "Methods",
+        "P017",
+        "Methods",
+        "P022",
+        "Vector",
+        "P017",
+        "Vector",
+        "P022"
+      ],
+      "retrieved_relationships": [
+        "Chunking -[MENTIONED_IN]-> P022",
+        "Methods -[MENTIONED_IN]-> P017",
+        "Methods -[MENTIONED_IN]-> P022",
+        "Vector -[MENTIONED_IN]-> P017",
+        "Vector -[MENTIONED_IN]-> P022"
+      ],
+      "retrieval_metrics": {
+        "hit_at_1": 1.0,
+        "hit_at_3": 1.0,
+        "hit_at_5": 1.0,
+        "recall_at_5": 0.5,
+        "mrr": 1.0
+      },
+      "method_specific_metrics": {
+        "dense_candidates": 5,
+        "bm25_candidates": 5,
+        "rrf_candidates": 5,
+        "final_candidates": 10
+      },
+      "embedding_latency_ms": 0.0,
+      "retrieval_latency_ms": 7556.992,
+      "generation_latency_ms": 673.2,
+      "total_latency_ms": 15624.149,
+      "error": null
+    }
+  ]
+}
